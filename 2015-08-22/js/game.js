@@ -1,25 +1,6 @@
+//http://m.zol.com.cn/topic/feima/play.php
+
 var timeRemain = 600, score = 5, started;
-// function resizeCanvas() {
-// 	var W = 640, H = 1136, dw = document.documentElement.clientWidth, dh = document.documentElement.clientHeight;
-// 	var w = W, h = H, r = 1;
-// 	if (W > dw || H > dh) {
-// 		r = Math.min(Math.min(W, dw) / W, Math.min(H, dh) / H);
-// 		w = Math.round(r * W);
-// 		h = Math.round(r * H);
-// 		canvas.style[$.CSSTransform] = 'scale(' + r.toFixed(4) + ')';
-// 	} else {
-// 		canvas.style[$.CSSTransform] = 'none';
-// 	}
-// 	viewport.style.width = w + 'px';
-// 	viewport.style.height = h + 'px';
-// }
-// window.addEventListener('resize', resizeCanvas);
-// resizeCanvas();
-
-// document.addEventListener(Event.Touch.move, function (e) {
-// 	Event.preventDefault(e);
-// });
-
 var windVelocity = document.getElementById('wind-velocity');
 function randomWind() {
 	var r = (Math.round(Math.random() * 40) - 20) / 4, v = Math.abs(r);
@@ -60,7 +41,6 @@ if (tipsClosed !== '1') {
 }
 
 window.addEventListener('load', function () {
-
 	if (!tips) {
 		randomWind();
 	}
@@ -92,11 +72,6 @@ window.addEventListener('load', function () {
 			document.getElementById('time-remain').innerHTML = timeRemain ? (timeRemain + 1000 + '').substr(2, 2) : '0';
 			if (timeRemain === 0) {
 				clearInterval(timeout);
-				// setTimeout(function () {
-				// 	complete.querySelector('var').innerHTML = score;
-				// 	complete.style.display = 'block';
-				// 	complete.classList.add('visible');
-				// }, 1200);
 				over.classList.add('visible');
 				o_fail.classList.add('visible');
 			}
@@ -115,20 +90,14 @@ window.addEventListener('load', function () {
 		value -= 45;
 		return value;
 	}
-	//setInterval(function () {
-	//	arrow.innerHTML = getArrowValue().toFixed(2);
-	//},100);
 
 	var lastTarget = 0, targeted = 0, dismiss;
 	function throwAppIcon(icon) {
 		var wind = parseFloat(windVelocity.value) || 0;
-		//wind = 0;
 		var dir = getArrowValue() + wind * 9;
 		if (dir > 25) dir = 25;
 		else if (dir < -25) dir = -25;
 		var offsetX, offsetY;
-		//dir = Math.round(Math.random() * 14) - 7;
-		//dir = 2;
 		if (dir < 0) {
 			icon.classList.remove('r1');
 			icon.classList.add('r2');
@@ -150,7 +119,6 @@ window.addEventListener('load', function () {
 			trashicon.style.visibility = 'hidden';
 			trash.appendChild(trashicon);
 			trashicon.className = 'trashicon ' + throwIcon.className;
-			//trashicon.className = throwIcon.className;
 			if (dismiss) {
 				clearTimeout(dismiss);
 				dismiss = 0;
@@ -167,9 +135,6 @@ window.addEventListener('load', function () {
 				dismiss = setTimeout(function () {
 					increment.classList.add('dismiss');
 				}, 700);
-				// score -= lastTarget + 1;
-				// lastTarget = 1;
-				// targeted++;
 				score--;
 				if (score < 0) score = 0;
 				document.getElementById('score').innerHTML = score;

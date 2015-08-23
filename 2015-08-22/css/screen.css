@@ -206,24 +206,24 @@ a img { border: 0 none; }
 .visible .animate-item { display: block; filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false); opacity: 1; }
 
 .section1 { background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2E3ZGZmMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2VmZDY5NiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA=='); background-size: 100%; background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #a7dff1), color-stop(100%, #efd696)); background-image: -moz-linear-gradient(#a7dff1, #efd696); background-image: -webkit-linear-gradient(#a7dff1, #efd696); background-image: linear-gradient(#a7dff1, #efd696); }
-.section1 .img1 { right: 0; top: 10px; width: 600px; height: 430px; background-image: url(../images/sec1-img1.png); }
-.section1 .img2 { left: 0; top: 408px; width: 640px; height: 424px; background-image: url(../images/sec1-img2.png); }
-.section1 .img3 { left: 50%; bottom: 100px; margin: 0 0 0 -131px; width: 262px; height: 132px; background-image: url(../images/sec1-img3.png); }
+.section1 .img1 { right: 0; top: 10px; width: 600px; height: 430px; }
+.section1 .img2 { left: 0; top: 408px; width: 640px; height: 424px; }
+.section1 .img3 { left: 50%; bottom: 100px; margin: 0 0 0 -131px; width: 262px; height: 132px; }
 .section1.visible .img1 { -moz-animation: bounceInDown 1s ease both; -webkit-animation: bounceInDown 1s ease both; animation: bounceInDown 1s ease both; }
 .section1.visible .img2 { -moz-animation: rollIn 1s 1s ease both; -webkit-animation: rollIn 1s 1s ease both; animation: rollIn 1s 1s ease both; }
 .section1.visible .img3 { -moz-animation: flipInY 0.5s 2s ease both; -webkit-animation: flipInY 0.5s 2s ease both; animation: flipInY 0.5s 2s ease both; }
 
 .section2 { background-color: #282521; }
-.section2 .img1 { left: 50%; top: 12px; margin-left: -255px; width: 511px; height: 329px; background-image: url(../images/sec2-img1.png); }
-.section2 .img2 { right: 10px; top: 426px; width: 559px; height: 478px; background-image: url(../images/sec2-img2.png); }
-.section2 .img3 { left: 138px; top: 618px; width: 171px; height: 208px; background-image: url(../images/sec2-img3.png); }
-.section2 .img4 { right: 20px; top: 684px; width: 215px; height: 166px; background-image: url(../images/sec2-img4.png); }
-.section2 .img5 { left: -68px; top: 280px; width: 366px; height: 335px; background-image: url(../images/sec2-img5.png); }
-.section2 .img6 { left: 208px; top: 531px; width: 122px; height: 95px; background-image: url(../images/sec2-img6.png); }
-.section2 .img7 { left: 176px; top: 550px; width: 27px; height: 58px; background-image: url(../images/sec2-img7.png); }
-.section2 .img8 { left: 225px; top: 484px; width: 69px; height: 35px; background-image: url(../images/sec2-img8.png); }
-.section2 .img9 { right: 95px; top: 448px; width: 134px; height: 121px; background-image: url(../images/sec2-img9.png); }
-.section2 .img10 { right: 33px; top: 358px; width: 290px; height: 58px; background-image: url(../images/sec2-img10.png); }
+.section2 .img1 { left: 50%; top: 12px; margin-left: -255px; width: 511px; height: 329px; }
+.section2 .img2 { right: 10px; top: 426px; width: 559px; height: 478px; }
+.section2 .img3 { left: 138px; top: 618px; width: 171px; height: 208px; }
+.section2 .img4 { right: 20px; top: 684px; width: 215px; height: 166px; }
+.section2 .img5 { left: -68px; top: 280px; width: 366px; height: 335px; }
+.section2 .img6 { left: 208px; top: 531px; width: 122px; height: 95px; }
+.section2 .img7 { left: 176px; top: 550px; width: 27px; height: 58px; }
+.section2 .img8 { left: 225px; top: 484px; width: 69px; height: 35px; }
+.section2 .img9 { right: 95px; top: 448px; width: 134px; height: 121px; }
+.section2 .img10 { right: 33px; top: 358px; width: 290px; height: 58px; }
 .section2.visible .img1 { -moz-animation: flipInX 0.5s 0s ease both; -webkit-animation: flipInX 0.5s 0s ease both; animation: flipInX 0.5s 0s ease both; }
 .section2.visible .img3 { -webkit-animation: left-hand-swing .4s 2.5s linear infinite alternate; }
 .section2.visible .img4 { -webkit-animation: right-hand-swing .4s 2.5s linear infinite alternate; }
@@ -235,12 +235,12 @@ a img { border: 0 none; }
 .section2.visible .img10 { -moz-animation: bounceInRight 0.5s 3s ease both; -webkit-animation: bounceInRight 0.5s 3s ease both; animation: bounceInRight 0.5s 3s ease both; }
 
 .section3 { background-color: #282521; }
-.section3 .img1 { left: 50%; top: 32px; margin-left: -276px; width: 552px; height: 816px; background-image: url(../images/sec3-img1.png); }
-.section3 .img2 { z-index: 10; left: 67px; top: 88px; width: 146px; height: 71px; background-image: url(../images/sec3-img2.png); }
-.section3 .img3 { opacity: 0; z-index: 2; left: 132px; top: 149px; width: 185px; height: 351px; background-image: url(../images/sec3-img3.png); }
-.section3 .img4 { left: 283px; top: 67px; width: 289px; height: 323px; background-image: url(../images/sec3-img4.png); }
-.section3 .img5 { left: 149px; top: 684px; width: 360px; height: 118px; background-image: url(../images/sec3-img5.png); }
-.section3 .img6 { left: 191px; top: 55px; width: 90px; height: 28px; background-image: url(../images/sec3-img6.png); }
+.section3 .img1 { left: 50%; top: 32px; margin-left: -276px; width: 552px; height: 816px; }
+.section3 .img2 { z-index: 10; left: 67px; top: 88px; width: 146px; height: 71px; }
+.section3 .img3 { opacity: 0; z-index: 2; left: 132px; top: 149px; width: 185px; height: 351px; }
+.section3 .img4 { left: 283px; top: 67px; width: 289px; height: 323px; }
+.section3 .img5 { left: 149px; top: 684px; width: 360px; height: 118px; }
+.section3 .img6 { left: 191px; top: 55px; width: 90px; height: 28px; }
 .section3.visible .img2 { -moz-animation: fadeInDownBig 0.5s ease both; -webkit-animation: fadeInDownBig 0.5s ease both; animation: fadeInDownBig 0.5s ease both; }
 .section3.visible .img3 { -webkit-animation: light-move 4s .8s linear infinite alternate; }
 .section3.visible .img4 { -moz-animation: zoomIn 0.3s 1.5s ease both; -webkit-animation: zoomIn 0.3s 1.5s ease both; animation: zoomIn 0.3s 1.5s ease both; }
@@ -248,12 +248,12 @@ a img { border: 0 none; }
 .section3.visible .img6 { -moz-animation: shake 0.5s 1s ease both; -webkit-animation: shake 0.5s 1s ease both; animation: shake 0.5s 1s ease both; }
 
 .section4 { background-color: #282521; }
-.section4 .img1 { left: 6px; top: 15px; width: 361px; height: 562px; background-image: url(../images/sec4-img1.png); }
-.section4 .img2 { left: 233px; top: 60px; width: 96px; height: 194px; background-image: url(../images/sec4-img2.png); }
-.section4 .img3 { right: 4px; top: 18px; width: 359px; height: 559px; background-image: url(../images/sec4-img3.png); }
-.section4 .img4 { right: 208px; top: 374px; width: 128px; height: 158px; background-image: url(../images/sec4-img4.png); }
-.section4 .img5 { left: 39px; top: 577px; width: 563px; height: 332px; background-image: url(../images/sec4-img5.png); }
-.section4 .img6 { right: 153px; top: 784px; width: 332px; height: 110px; background-image: url(../images/sec4-img6.png); }
+.section4 .img1 { left: 6px; top: 15px; width: 361px; height: 562px; }
+.section4 .img2 { left: 233px; top: 60px; width: 96px; height: 194px; }
+.section4 .img3 { right: 4px; top: 18px; width: 359px; height: 559px; }
+.section4 .img4 { right: 208px; top: 374px; width: 128px; height: 158px; }
+.section4 .img5 { left: 39px; top: 577px; width: 563px; height: 332px; }
+.section4 .img6 { right: 153px; top: 784px; width: 332px; height: 110px; }
 .section4.visible .img1 { -moz-animation: bounceInLeft 0.5s ease both; -webkit-animation: bounceInLeft 0.5s ease both; animation: bounceInLeft 0.5s ease both; }
 .section4.visible .img2 { -moz-animation: zoomIn 0.5s 0.8s ease both; -webkit-animation: zoomIn 0.5s 0.8s ease both; animation: zoomIn 0.5s 0.8s ease both; }
 .section4.visible .img3 { -moz-animation: bounceInRight 0.5s 1.6s ease both; -webkit-animation: bounceInRight 0.5s 1.6s ease both; animation: bounceInRight 0.5s 1.6s ease both; }
@@ -262,3 +262,57 @@ a img { border: 0 none; }
 .section4.visible .img6 { -moz-animation: zoomIn 0.5s 4s ease both; -webkit-animation: zoomIn 0.5s 4s ease both; animation: zoomIn 0.5s 4s ease both; }
 
 .section5 { background-image: url(../images/sec5-bg.png); background-size: 100% 100%; }
+
+.section1 .img1 { background-image: url(../images/sec1-img1.png); }
+
+.section1 .img2 { background-image: url(../images/sec1-img2.png); }
+
+.section1 .img3 { background-image: url(../images/sec1-img3.png); }
+
+.section1 .img4 { background-image: url(../images/sec1-img4.png); }
+
+.section1 .img5 { background-image: url(../images/sec1-img5.png); }
+
+.section1 .img6 { background-image: url(../images/sec1-img6.png); }
+
+.section1 .img7 { background-image: url(../images/sec1-img7.png); }
+
+.section1 .img8 { background-image: url(../images/sec1-img8.png); }
+
+.section1 .img9 { background-image: url(../images/sec1-img9.png); }
+
+.section2 .img1 { background-image: url(../images/sec2-img1.png); }
+
+.section2 .img2 { background-image: url(../images/sec2-img2.png); }
+
+.section2 .img3 { background-image: url(../images/sec2-img3.png); }
+
+.section2 .img4 { background-image: url(../images/sec2-img4.png); }
+
+.section2 .img5 { background-image: url(../images/sec2-img5.png); }
+
+.section2 .img6 { background-image: url(../images/sec2-img6.png); }
+
+.section2 .img7 { background-image: url(../images/sec2-img7.png); }
+
+.section2 .img8 { background-image: url(../images/sec2-img8.png); }
+
+.section2 .img9 { background-image: url(../images/sec2-img9.png); }
+
+.section3 .img1 { background-image: url(../images/sec3-img1.png); }
+
+.section3 .img2 { background-image: url(../images/sec3-img2.png); }
+
+.section3 .img3 { background-image: url(../images/sec3-img3.png); }
+
+.section3 .img4 { background-image: url(../images/sec3-img4.png); }
+
+.section3 .img5 { background-image: url(../images/sec3-img5.png); }
+
+.section3 .img6 { background-image: url(../images/sec3-img6.png); }
+
+.section3 .img7 { background-image: url(../images/sec3-img7.png); }
+
+.section3 .img8 { background-image: url(../images/sec3-img8.png); }
+
+.section3 .img9 { background-image: url(../images/sec3-img9.png); }
