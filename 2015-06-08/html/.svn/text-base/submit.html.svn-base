@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="gbk" />
+	<script>
+		if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
+			if(parseFloat(RegExp.$1)>2.3){
+				var phoneScale = parseInt(window.screen.width)/640;
+				document.write('<meta name="viewport" content="width=640, minimum-scale='+ phoneScale +', maximum-scale='+ phoneScale +', target-densitydpi=device-dpi" />');
+			}else{
+				document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi" />');
+			}
+		}else{
+			document.write('<meta name="viewport" content="width=640,user-scalable=no, target-densitydpi=device-dpi" />');
+		}
+	</script>
+	<title>Z股神机 牛熊大战游戏成绩</title>
+	<link rel="stylesheet" href="http://active.zol.com.cn/15active/0604gs/gushen.css" />
+</head>
+<body id="game">  
+	<!-- header -->
+	<header class="g-header">
+		<h2 class="logo">中关村在线</h2>
+		<h1 class="logo-gushen">一代炒股神器问世Z股神</h1>
+	</header>
+
+	<!-- main -->
+	<div id="modal" class="modal submit" style="display: block; background: rgba(0,0,0,0);">
+		<div class="modal-bg">
+			<div class="modal-content">
+				<div class="modal-success">
+					<h1>恭喜股神大人</h1>
+					<p>
+						此次大盘最高点为<span id="num"></span>点<br />
+						请输入手机号参与抽奖
+					</p>
+					<form action="http://active.zol.com.cn/api/wap/ajax/score.php/submit" method="get" autocomplete="off" id="result">
+						<input id="phone" type="tel" name="phone" partten="^1(([38]\d)|(4[57])|(5[012356789])|(7[0678]))\d{8}$" placeholder="请输入手机号" maxlength="11" />
+						<input type="submit" value="" class="g-button" disabled="" />
+						<div id="tips"></div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript">
+// 这个是微信分享的图片路径和title，图片尺寸限制为300x300
+window.WeixinShareData = {
+	'icon':'http://2.zol-img.com.cn/zt/tm_557/024ac0345f/weixin.jpg',
+	'title':'Z股神机 牛熊大战有奖游戏'
+};
+</script>
+<script src="http://icon.zol-img.com.cn/wap/js/z.min.js"></script>
+<script src="http://icon.zol-img.com.cn/m/js/wechat-share.1.1.js"></script>
+<script type="text/javascript">
+define(function (require,exports){
+	//提交表单 from /3g/v2.8.2
+	var score = localStorage.getItem('score');
+	if (score >= 6000) {
+		score = 1000;
+	};
+	num.innerHTML = score;
+	var submitButton = result.querySelector('input[type="submit"]');
+	result.addEventListener('submit',function(e){
+		e.preventDefault();
+		var phoneValue = phone.value,
+		 	pattern = new RegExp(phone.getAttribute('partten'));
+		if(!pattern.test(phoneValue)){
+			tips.show('error','\u624b\u673a\u53f7\u9519\u8bef') // 手机号错误
+		}else{
+			submitButton.disabled = true;
+			exports.ajax({
+				type:this.method,
+				url:this.action,
+				data:{'activeId':5243757,'mobile':phoneValue,'score':score,'times':0},
+				dataType:'jsonp',
+				success:function(response){
+					if(response && response.status){
+						try{	//记住手机号
+							localStorage.setItem('mobile',phoneValue);	
+						}catch(error){}
+						tips.show('success',response.content) // 信息提交成功
+						location.href = 'http://m.zol.com.cn/topic/5244786.html';
+					}else{
+						submitButton = false;
+						tips.show('error',response.content) // 提交失败	
+					}
+				},
+				error:function(){
+					submitButton = false;
+					tips.show('error','\u7f51\u7edc\u4e0d\u7ed9\u529b') // 手机号错误		
+				}	
+			})	
+		}
+	});
+
+	result.check = function(){
+		submitButton.disabled = !phone.value ? true : false;	
+	};
+
+	phone.addEventListener('input',result.check);
+	phone.addEventListener('focus',result.check);
+	
+	// 手机号输入提示层
+	tips.timer;
+	tips.show = function(c,s){
+		tips.timer && clearTimeout(tips.timer);
+		tips.className = c;
+		tips.innerHTML = s;
+		if(c==='error'){
+			phone.classList.add('hide');
+			tips.timer = setTimeout(function(){
+				tips.className = '';
+				phone.classList.remove('hide');
+			},500);
+		};
+		if (c==='success') {
+			phone.classList.add('hide');
+		};
+	};
+
+	window.addEventListener('load',function(){
+		var storagePhone = localStorage.getItem('mobile');
+		if(storagePhone){
+			phone.value = storagePhone;	
+		};
+		result.check();
+	});
+});
+// if (document.referrer!='http://m.zol.com.cn/topic/5244742.html') {
+// 	window.location.href = 'http://m.zol.com.cn/topic/5243757.html';
+// };
+</script>
+</body>
+</html>

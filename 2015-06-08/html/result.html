@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="gbk" />
+	<script>
+		if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
+			if(parseFloat(RegExp.$1)>2.3){
+				var phoneScale = parseInt(window.screen.width)/640;
+				document.write('<meta name="viewport" content="width=640, minimum-scale='+ phoneScale +', maximum-scale='+ phoneScale +', target-densitydpi=device-dpi" />');
+			}else{
+				document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi" />');
+			}
+		}else{
+			document.write('<meta name="viewport" content="width=640,user-scalable=no, target-densitydpi=device-dpi" />');
+		}
+	</script>
+	<title>Z股神机 牛熊大战游戏获奖名单</title>
+	<link rel="stylesheet" href="http://active.zol.com.cn/15active/0604gs/gushen.css" />	
+	<style type="text/css">
+	.loading{position: absolute; z-index: 1001; opacity: 0; pointer-events: none; width: 200px; height: 180px; left: 50%; top: 50%; margin: -100px 0 0 -90px; background: rgba(0,0,0,.8);-webkit-transition: opacity .2s linear;transition: opacity .2s linear;-webkit-border-radius: 20px; border-radius: 20px; }
+	.loading:before{margin:20px 0 0 20px; content:"";width: 160px; height: 140px; display: block; -webkit-border-radius: 8px; border-radius: 8px; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAVFBMVEX///////////////////////////////////////////////////////////////////////////////////////////////////////////////+UMeA9AAAAG3RSTlMAAgQQIDA9QEpMUGBwfICQlKCssMDE0Nzg8PQ1V+FjAAABn0lEQVR4Xq3W227DIBAE0HWA0rrYNIFSHP7/P3sxLsrOkiKlI0V5yYnG1nIhKWYNudTk4AwNRftcWLLXfzIbi5ho7zLdGFKN4Gm5pJ9cy51cU81b6/f9WWMZy/bS4PHtwvY3nC2De4w757vuTBy26Nc+zopBHjX7JEFLCBHjG/MEUI7jRW/gS9cZKHoD37swYVGi5XC29NwqFCVKR9fYg5YVNbVG3J0uHajYJKy//fd59z3ob12iA9ZnzQjlog3m+sZFqDYsWuH+J64DAxZt0NUfCG4WijYY9kcsg0UbzERURMiGO/JxIpoQ4mxvmsOJThLUrKgjDk8A5aKDcIWiY9AULIpwQpigKMKJCKDHoghhAHC2ZxJghpGDRRhIggGGHIoqETpYVjMUFaHhC1ltUFSCGbaOAEVF6PlmhUVlqNn2yGfbkwwj35Aj7L8ytOwIcHBQyFnYoTNYFI+5BEXH4ApFx6ApPHG1A1AlgIgRstkGrLrQlvtJflYSZIuwjzk8VzCGG3xORz765iPVXJYHLroPXK0fvsxjptNXJvr3fAJQqYYOskEC/AAAAABJRU5ErkJggg==) no-repeat 50% 50%; }
+	.loading-ring { display: block; position: absolute; width: 96px; height: 96px; left: 50%; top: 50%; margin: -48px 0 0 -48px; -webkit-animation: loaing-animation linear 1s infinite; animation: loaing-animation linear 1s infinite; background: url(data:image/png;base64,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) no-repeat 0 0; -webkit-background-size: 100% 100%; background-size: 100% 100%; }
+	.loading-visible { opacity: 1;}
+
+	@-webkit-keyframes loaing-animation {
+		0% { -webkit-transform: rotate(0deg); }
+		100% { -webkit-transform: rotate(360deg); }
+	}
+
+	@keyframes loaing-animation {
+		0% { transform: rotate(0deg); }
+		100% { transform: rotate(360deg); }
+	}
+	</style>
+</head>
+<body id="game">
+	<div class="loading loading-visible" id="loading">
+    	<span class="loading-ring"></span>
+    </div>
+	<!-- header -->
+	<header class="g-header">
+		<h2 class="logo">中关村在线</h2>
+		<h1 class="logo-gushen">一代炒股神器问世Z股神</h1>
+	</header>
+
+	<!-- main -->
+	<section class="g-main s-main" style="display: block;">
+		<div class="g-main-bg">
+			<a class="back" href="http://m.zol.com.cn/topic/5243757.html">返回首页</a>
+			<h1>Z股神获奖名单</h1>
+			<div class="r-table re-table">
+				<table>
+					<tbody>
+						<tr>
+							<td>日期</td>
+							<td>获奖用户</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+		
+		<div class="share">
+			<label>分享到：</label>
+			<span class="wechat" h style="display: none;">微信</span>
+			<a href="#" class="weibo">微博</a>
+			<a href="#" class="tencent-weibo">腾讯微博</a>
+			<a href="#" class="qzone">QQ空间</a>
+		</div>
+	</section>
+
+<script>
+//分享
+var share_title=encodeURIComponent( '\u4E00\u4EE3\u7092\u80A1\u795E\u5668\u95EE\u4E16Z\u80A1\u795E');
+var share_link=encodeURIComponent('http://m.zol.com.cn/topic/5243757.html');
+var share_pic=encodeURIComponent('http://2.zol-img.com.cn/zt/tm_557/024ac0345f/weixin.jpg');
+
+var sina='http://service.weibo.com/share/share.php?url='+share_link+'&title='+share_title+'&appkey=4028615622&ralateUid=1951621751&pic='+share_pic+'&searchPic=false&refer='+share_link;
+var tencent='http://share.v.t.qq.com/index.php?c=share&a=index&url='+share_link+'&title='+share_title+'&appkey=99d207b90670adceaaa416b63528d92c&pic='+share_pic;
+var qzone='http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='+share_link+'&desc='+share_title+'&pics='+share_pic;
+var share_con = '<label>\u5206\u4EAB\u5230</label><a target="_self" class="wechat" href="#wechat" style="display: none">wechat</a><a target="_self" class="weibo" href="'+sina+'">sina</a><a target="_self" class="tencent-weibo" href="'+tencent+'">tencent</a><a target="_self" class="qzone" href="'+qzone+'">QQ</a>';
+document.querySelector('.share').innerHTML = share_con;
+// 这个是微信分享的图片路径和title，图片尺寸限制为300x300
+window.WeixinShareData = {
+	'icon':'http://2.zol-img.com.cn/zt/tm_557/024ac0345f/weixin.jpg',
+	'title':'Z股神机 牛熊大战有奖游戏'
+};
+</script>
+<script src="http://icon.zol-img.com.cn/wap/js/z.min.js"></script>
+<script src="http://icon.zol-img.com.cn/m/js/wechat-share.1.1.js"></script>
+<script src="http://icon.zol-img.com.cn/m/js/orientation.1.0.js"></script>
+<script type="text/javascript">
+window.addEventListener('load',function(){
+	loading.classList.remove('loading-visible');
+})
+$.ajax({
+	url: 'http://active.zol.com.cn/api/wap/ajax/score.php/winning',
+	type: 'get',
+	data: {'activeId':5243757,'num':2},
+	dataType: 'jsonp',
+	success: function(response){
+		if (response) {
+			var table = document.querySelector('.r-table tbody');
+			for (var i = 0, len = response.results.length; i < len; i++) {
+				table.innerHTML += '<tr><td>6月' + (10+Math.floor(i/2)) + '日</td><td>'+ response.results[i].mobile +'</td></tr>';
+			}
+		} else {
+			alert('目前没有获奖名单');
+		}
+	}
+});
+// if (document.referrer!='http://m.zol.com.cn/topic/5244786.html') {
+// 	window.location.href = 'http://m.zol.com.cn/topic/5243757.html';
+// };
+</script>
+</body>
+</html>
