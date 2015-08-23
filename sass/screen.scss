@@ -1,0 +1,431 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/css3";
+// @import "compass/css3/shared";
+@import "reset";
+@import "animate";
+
+@include animate-flash($class:true);
+@include animate-shake($class:true);
+@include animate-bounceInDown($class:true);
+@include animate-bounceInUp($class:true);
+@include animate-bounceInLeft($class:true);
+@include animate-bounceInRight($class:true);
+@include animate-rollIn($class:true);
+@include animate-fadeInDownBig($class:true);
+@include animate-flipInX($class:true);
+@include animate-flipInY($class:true);
+
+@mixin left-hand-swing() {
+	-webkit-animation: left-hand-swing .4s 2.5s linear infinite alternate;
+}
+@mixin right-hand-swing() {
+	-webkit-animation: right-hand-swing .4s 2.5s linear infinite alternate;
+}
+@mixin light-move() {
+	-webkit-animation: light-move 4s .8s linear infinite alternate;
+}
+@-webkit-keyframes left-hand-swing{
+    0% {
+    	-webkit-transform: rotate(-30deg);
+    	-webkit-transform-origin:100% 100%;
+    }
+    100%{
+    	-webkit-transform: rotate(30deg);
+    	-webkit-transform-origin:100% 100%;
+    }
+}
+@-webkit-keyframes right-hand-swing{
+    0% {
+    	-webkit-transform: rotate(30deg);
+    	-webkit-transform-origin:0 100%;
+    }
+    100%{
+    	-webkit-transform: rotate(-30deg);
+    	-webkit-transform-origin:0 100%;
+    }
+}
+@-webkit-keyframes light-move{
+    0% {
+    	opacity: 1;
+    	-webkit-transform: rotate(-25deg);
+    	-webkit-transform-origin:0 0;
+    }
+    100%{
+    	opacity: 1;
+    	-webkit-transform: rotate(25deg);
+    	-webkit-transform-origin:0 0;
+    }
+}
+@-webkit-keyframes zoomIn {
+	from {
+		opacity: 0;
+		-webkit-transform: scale3d(.3, .3, .3);
+		transform: scale3d(.3, .3, .3);
+	}
+	50% {
+		opacity: 1;
+	}
+}
+@keyframes zoomIn {
+	from {
+		opacity: 0;
+		-webkit-transform: scale3d(.3, .3, .3);
+		transform: scale3d(.3, .3, .3);
+	}
+	50% {
+		opacity: 1;
+	}
+}
+@mixin zoomIn() {
+	-webkit-animation-name: zoomIn;
+  	animation-name: zoomIn;
+}
+
+.wrapper {
+	z-index: 1;
+	position: relative;
+	margin: 0 auto;
+	height: 100%;
+	overflow: hidden;
+}
+@-webkit-keyframes swipe{
+	0%   {-webkit-transform:translate(0,0)}
+	50%  {-webkit-transform:translate(0,10px)}
+	100% {-webkit-transform:translate(0,0)}
+}
+@keyframes swipe{
+	0%   {transform:translate(0,0)}
+	50%  {transform:translate(0,10px)}
+	100% {transform:translate(0,0)}
+}
+.arrow {
+	display: none;
+	position:absolute;
+	bottom:3%;
+	left:50%;
+	margin-left:-34px;
+	z-index:10;
+	-webkit-animation: swipe 1s ease 0s infinite;
+	animation: swipe 1s ease 0s infinite;
+	width: 68px;
+	height: 29px;
+	background-image: url(../images/arrow.png);
+	&.visible {
+		display: block;
+	}
+}
+.bgmusic {
+	z-index: 100;
+	position: absolute;
+	right: 10px;
+	top: 20px;
+	width: 79px;
+	height: 79px;
+	background-image: url(../images/music.png);
+}
+.bgmusic-closed {
+	background-image: url(../images/music-closed.png);
+}
+.container {
+	z-index: 1;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 1000%;
+	-webkit-transition: -webkit-transform .5s ease-in-out;
+	transition: transform .5s ease-in-out;
+}
+.section {
+	position: relative;
+	width: 100%;
+	height: 10%;
+	overflow: hidden;
+}
+.animate-item {
+	display: none;
+	position: absolute;
+	@include opacity(0);
+}
+.visible .animate-item {
+	display: block;
+	@include opacity(1);
+}
+.section1 {
+	@include background-image(linear-gradient(#a7dff1, #efd696));
+	.img1 {
+		right: 0;
+		top: 10px;
+		width: 600px;
+		height: 430px;
+		background-image: url(../images/sec1-img1.png);
+	}
+	.img2 {
+		left: 0;
+		top: 408px;
+		width: 640px;
+		height: 424px;
+		background-image: url(../images/sec1-img2.png);
+	}
+	.img3 {
+		left: 50%;
+		bottom: 100px;
+		margin: 0 0 0 -131px;
+		width: 262px;
+		height: 132px;
+		background-image: url(../images/sec1-img3.png);
+	}
+	&.visible {
+		.img1 {
+			@include animation(bounceInDown 1s ease both);
+		}
+		.img2 {
+			@include animation(rollIn 1s 1s ease both);
+		}
+		.img3 {
+			@include animation(flipInY .5s 2s ease both);
+		}
+	}
+}
+.section2 {
+	background-color: #282521;
+	.img1 {
+		left: 50%;
+		top: 12px;
+		margin-left: -255px;
+		width: 511px;
+		height: 329px;
+		background-image: url(../images/sec2-img1.png);
+	}
+	.img2 {
+		right: 10px;
+		top: 426px;
+		width: 559px;
+		height: 478px;
+		background-image: url(../images/sec2-img2.png);
+	}
+	.img3 {
+		left: 138px;
+		top: 618px;
+		width: 171px;
+		height: 208px;
+		background-image: url(../images/sec2-img3.png);
+	}
+	.img4 {
+		right: 20px;
+		top: 684px;
+		width: 215px;
+		height: 166px;
+		background-image: url(../images/sec2-img4.png);
+	}
+	.img5 {
+		left: -68px;
+		top: 280px;
+		width: 366px;
+		height: 335px;
+		background-image: url(../images/sec2-img5.png);
+	}
+	.img6 {
+		left: 208px;
+		top: 531px;
+		width: 122px;
+		height: 95px;
+		background-image: url(../images/sec2-img6.png);
+	}
+	.img7 {
+		left: 176px;
+		top: 550px;
+		width: 27px;
+		height: 58px;
+		background-image: url(../images/sec2-img7.png);
+	}
+	.img8 {
+		left: 225px;
+		top: 484px;
+		width: 69px;
+		height: 35px;
+		background-image: url(../images/sec2-img8.png);
+	}
+	.img9 {
+		right: 95px;
+		top: 448px;
+		width: 134px;
+		height: 121px;
+		background-image: url(../images/sec2-img9.png);
+	}
+	.img10 {
+		right: 33px;
+		top: 358px;
+		width: 290px;
+		height: 58px;
+		background-image: url(../images/sec2-img10.png);
+	}
+	&.visible {
+		.img1 {
+			@include animation(flipInX .5s 0s ease both);
+		}
+		.img3 {
+			@include left-hand-swing;
+		}
+		.img4 {
+			@include right-hand-swing;
+		}
+		.img5 {
+			@include animation(rollIn 1s 1s ease both);
+		}
+		.img6 {
+			@include animation(flash infinite .5s 2s ease both);
+		}
+		.img7 {
+			@include animation(flash infinite .5s 2s ease both);
+		}
+		.img8 {
+			@include animation(flash infinite .5s 2s ease both);
+		}
+		.img9 {
+			@include animation(shake infinite .5s 2.5s ease both);
+		}
+		.img10 {
+			@include animation(bounceInRight .5s 3s ease both);
+		}
+	}
+}
+.section3 {
+	background-color: #282521;
+	.img1 {
+		left: 50%;
+		top: 32px;
+		margin-left: -276px;
+		width: 552px;
+		height: 816px;
+		background-image: url(../images/sec3-img1.png);
+	}
+	.img2 {
+		z-index: 10;
+		left: 67px;
+		top: 88px;
+		width: 146px;
+		height: 71px;
+		background-image: url(../images/sec3-img2.png);
+	}
+	.img3 {
+		opacity: 0;
+		z-index: 2;
+		left: 132px;
+		top: 149px;
+		width: 185px;
+		height: 351px;
+		background-image: url(../images/sec3-img3.png);
+	}
+	.img4 {
+		left: 283px;
+		top: 67px;
+		width: 289px;
+		height: 323px;
+		background-image: url(../images/sec3-img4.png);
+	}
+	.img5 {
+		left: 149px;
+		top: 684px;
+		width: 360px;
+		height: 118px;
+		background-image: url(../images/sec3-img5.png);
+	}
+	.img6 {
+		left: 191px;
+		top: 55px;
+		width: 90px;
+		height: 28px;
+		background-image: url(../images/sec3-img6.png);
+	}
+	&.visible {
+		.img2 {
+			@include animation(fadeInDownBig .5s ease both);
+		}
+		.img3 {
+			@include light-move;
+		}
+		.img4 {
+			@include animation(zoomIn 0.3s 1.5s ease both);
+		}
+		.img5 {
+			@include animation(bounceInUp 0.5s 2s ease both);
+		}
+		.img6 {
+			@include animation(shake .5s 1s ease both);
+		}
+	}
+}
+.section4 {
+	background-color: #282521;
+	.img1 {
+		left: 6px;
+		top: 15px;
+		width: 361px;
+		height: 562px;
+		background-image: url(../images/sec4-img1.png);
+	}
+	.img2 {
+		left: 233px;
+		top: 60px;
+		width: 96px;
+		height: 194px;
+		background-image: url(../images/sec4-img2.png);
+	}
+	.img3 {
+		right: 4px;
+		top: 18px;
+		width: 359px;
+		height: 559px;
+		background-image: url(../images/sec4-img3.png);
+	}
+	.img4 {
+		right: 208px;
+		top: 374px;
+		width: 128px;
+		height: 158px;
+		background-image: url(../images/sec4-img4.png);
+	}
+	.img5 {
+		left: 39px;
+		top: 577px;
+		width: 563px;
+		height: 332px;
+		background-image: url(../images/sec4-img5.png);
+	}
+	.img6 {
+		right: 153px;
+		top: 784px;
+		width: 332px;
+		height: 110px;
+		background-image: url(../images/sec4-img6.png);
+	}
+	&.visible {
+		.img1 {
+			@include animation(bounceInLeft .5s ease both);
+		}
+		.img2 {
+			@include animation(zoomIn .5s .8s ease both);
+		}
+		.img3 {
+			@include animation(bounceInRight .5s 1.6s ease both);
+		}
+		.img4 {
+			@include animation(zoomIn .5s 2.4s ease both);
+		}
+		.img5 {
+			@include animation(bounceInUp .5s 3.2s ease both);
+		}
+		.img6 {
+			@include animation(zoomIn .5s 4s ease both);
+		}
+	}
+}
+.section5 {
+	background-image: url(../images/sec5-bg.png);
+	background-size: 100% 100%;
+}
