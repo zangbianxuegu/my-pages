@@ -1,0 +1,348 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass/css3";
+// @import "compass/css3/shared";
+@import "animate";
+
+@include animate-bounceInDown($class:true);
+@include animate-bounceInUp($class:true);
+@include animate-bounceInLeft($class:true);
+@include animate-bounceInRight($class:true);
+
+@-webkit-keyframes swipe{
+	0%   {-webkit-transform:translate3d(0,0,0)}
+	50%  {-webkit-transform:translate3d(0,20px,0)}
+	100% {-webkit-transform:translate3d(0,0,0)}
+}
+@keyframes swipe{
+	0%   {transform:translate3d(0,0,0)}
+	50%  {transform:translate3d(0,20px,0)}
+	100% {transform:translate3d(0,0,0)}
+}
+@-webkit-keyframes zoomIn {
+	from {
+		opacity: 0;
+		-webkit-transform: scale3d(.3, .3, .3);
+		transform: scale3d(.3, .3, .3);
+	}
+	50% {
+		opacity: 1;
+	}
+}
+@keyframes zoomIn {
+	from {
+		opacity: 0;
+		-webkit-transform: scale3d(.3, .3, .3);
+		transform: scale3d(.3, .3, .3);
+	}
+	50% {
+		opacity: 1;
+	}
+}
+@mixin zoomIn() {
+	-webkit-animation-name: zoomIn;
+  	animation-name: zoomIn;
+}
+
+html {
+	height: 100%;
+	overflow: hidden;
+}
+body {
+	@extend html;
+}
+.wrapper {
+	width: 640px;
+	height: 100%;
+	position: relative;
+	z-index: 1;
+	margin: 0 auto;
+	overflow: hidden;
+	background-color: #fee306;
+}
+.container {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1;
+	width: 100%;
+	height: 1000%;
+	-webkit-transition: -webkit-transform .5s ease-in-out;
+	transition: transform .5s ease-in-out;
+}
+.arrow {
+	display: none;
+	position:absolute;
+	bottom:3%;
+	left:50%;
+	margin-left:-25px;
+	z-index:10;
+	-webkit-animation: swipe 1s ease 0s infinite;
+	animation: swipe 1s ease 0s infinite;
+	width: 50px;
+	height: 28px;
+	background-image: inline-image('/base64/arrow.png');
+	&.visible {
+		display: block;
+	}
+}
+.section {
+	position: relative;
+	width: 100%;
+	height: 10%;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-image: image-url('bg.png');
+}
+.animate-item {
+	position: absolute;
+	display: none;
+	@include opacity(0);
+}
+.visible .animate-item {
+	display: block;
+	@include opacity(1);
+}
+.section1 {
+	.img1 {
+		z-index: 2;
+		left: 50%;
+		top: 4px;
+		margin: 0 0 0 -200px;
+		width: 397px;
+		height: 280px;
+		background-image: image-url('sec1-pic1.png');
+	}
+	.img2 {
+		z-index: 1;
+		left: 50%;
+		top: 224px;
+		margin: 0 0 0 -270px;
+		width: 527px;
+		height: 181px;
+		background-image: image-url('sec1-pic2.png');
+	}
+	.img3 {
+		z-index: 2;
+		left: 50%;
+		top: 405px;
+		margin: 0 0 0 -170px;
+		width: 347px;
+		height: 329px;
+		background-image: image-url('sec1-pic3.png');
+	}
+	.img4 {
+		z-index: 1;
+		left: 50%;
+		top: 667px;
+		margin: 0 0 0 -230px;
+		width: 469px;
+		height: 168px;
+		background-image: image-url('sec1-pic4.png');
+	}
+	&.visible {
+		.img1 {
+			@include animation(bounceInDown .8s ease-in-out both);
+		}
+		.img2 {
+			@include animation(bounceInLeft .8s .5s ease-in-out both);
+		}
+		.img3 {
+			@include animation(bounceInUp .8s 1.1s ease-in-out both);
+		}
+		.img4 {
+			@include animation(bounceInRight .8s 1.7s ease-in-out both);
+		}
+	}
+}
+.section {
+	&.visible {
+		.vol {
+			@include animation(zoomIn .5s .5s ease-in-out both);
+		}
+		li:nth-of-type(1) {
+			@include animation(bounceInLeft .5s 1s ease-in-out both);
+		}
+		li:nth-of-type(2) {
+			@include animation(bounceInLeft .5s 1.5s ease-in-out both);
+		}
+		li:nth-of-type(3) {
+			@include animation(bounceInLeft .5s 2s ease-in-out both);
+		}
+	}
+}
+.main-wrap {
+	position: absolute;
+	left: 50%;
+	top: 50px;
+	margin: 0 0 0 -270px;
+	width: 542px;
+	height: 763px;
+	background-image:image-url('main-bg.png');
+}
+.main-box {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	.question {
+		position: absolute;
+		left: 60px;
+		top: 50px;
+		width: 423px;
+		height: 232px;
+		background-image:image-url('main-q-bg.png');
+		background-repeat: no-repeat;
+	}
+	.vol {
+		margin: 32px 0 0 154px;
+		width: 238px;
+		height: 159px;
+		background-image:image-url('main-v-bg.png');
+		background-repeat: no-repeat;
+	}
+	.answers {
+		position: absolute;
+		left: 21px;
+		top: 401px;
+		width: 501px;
+		height: 225px;
+	}
+	li {
+		margin-bottom: 5px;
+		width: 100%;
+		height: 72px;
+		line-height: 72px;
+		font-size: 0;
+		text-indent: -999em;
+		background-image:image-url('main-a-bg.png');
+		background-repeat: no-repeat;
+		&:last-child {
+			margin: 0;
+		}
+	}
+}
+@for $i from 2 through 11 {
+	.section#{$i} {
+		.question {
+			background-position: 0 -232px * ($i - 2);
+		}
+		.vol {
+			background-position: 0 -159px * ($i - 2);
+		}
+		li:nth-of-type(1) {
+			background-position: 50% -72px * (3*$i - 6);
+		}
+		li:nth-of-type(2) {
+			background-position: 50% -72px * (3*$i - 5);
+		}
+		li:nth-of-type(3) {
+			background-position: 50% -72px * (3*$i - 4);
+		}
+	}
+}
+.section2 {
+	.vol {
+		width: 242px;
+		height: 132px;
+		margin: 61px 0 0 161px;
+	}
+}
+.section3 {
+	.vol {
+		width: 289px;
+		margin: 34px 0 0 129px;
+	}
+}
+.section4 {
+	.vol {
+		margin: 60px 0 0 161px;
+	}
+}
+.section12 {
+	> * {
+		position: absolute;
+	}
+	.level {
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 330px;
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+	}
+	.level1{
+		background-image: image-url('result-level1.png');
+	}
+	.level2{
+		background-image: image-url('result-level2.png');
+	}
+	.level3{
+		background-image: image-url('result-level3.png');
+	}
+	.level4{
+		background-image: image-url('result-level4.png');
+	}
+	.casio {
+		left: 50%;
+		top: 330px;
+		margin: 0 0 0 -184px;
+		width: 368px;
+		height: 268px;
+		background-image: image-url('casio.png');
+	}
+	.btn-box {
+		left: 0;
+		top: 612px;
+		width: 100%;
+		height: 99px;
+		text-align: center;
+		a {
+			width: 309px;
+			height: 99px;
+			display: inline-block;
+			text-indent: -999em;
+			background-position: 50% 50%;
+			background-repeat: no-repeat;
+		}
+		.retest {
+			background-image: inline-image('/base64/retest.png');
+		}
+		.more {
+			background-image: inline-image('/base64/more.png');
+		}
+	}
+	.share {
+		left: 0;
+		top: 712px;
+		width: 100%;
+		height: 110px;
+		text-align: center;
+		a {
+			display: inline-block;
+			width: 110px;
+			height: 110px;
+			margin: 0 10px;
+			vertical-align: top;
+			overflow: hidden;
+			color: rgba(0,0,0,0);
+			text-indent: -999em;
+			background-repeat: no-repeat;
+		}
+		.wechat {
+			background-image: inline-image('/base64/weixin.png');
+		}
+		.weibo {
+			background-image: inline-image('/base64/weibo.png');
+		}
+		.qzone {
+			background-image: inline-image('/base64/qzone.png');
+		}
+		.tencent-weibo {
+			background-image: inline-image('/base64/tencent-weibo.png');
+		}
+	}
+}

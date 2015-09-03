@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="gbk">
+    <!-- 删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 设置苹果工具栏颜色 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+    <meta name="format-detection" content="telphone=no, email=no" />
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- 微软的老式浏览器 -->
+    <meta name="MobileOptimized" content="320">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <!-- windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- 适应移动端end -->
+	<script>
+		if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
+			if(parseFloat(RegExp.$1)>2.3){
+				var phoneScale = parseInt(window.screen.width)/640;
+				document.write('<meta name="viewport" content="width=640, minimum-scale='+ phoneScale +', maximum-scale='+ phoneScale +', target-densitydpi=device-dpi" />');
+			}else{
+				document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi" />');
+			}
+		}else{
+			document.write('<meta name="viewport" content="width=640,user-scalable=no, target-densitydpi=device-dpi" />');
+		}
+	</script>
+	<title>卡西欧专题</title>
+    <style type="text/css">
+    .loading{position: absolute; z-index: 1001; opacity: 0; pointer-events: none; width: 200px; height: 180px; left: 50%; top: 50%; margin: -100px 0 0 -90px; background: rgba(0,0,0,.8);-webkit-transition: opacity .2s linear;transition: opacity .2s linear;-webkit-border-radius: 20px; border-radius: 20px; }
+    .loading:before{margin:20px 0 0 20px; content:"";width: 160px; height: 140px; display: block; -webkit-border-radius: 8px; border-radius: 8px; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAVFBMVEX///////////////////////////////////////////////////////////////////////////////////////////////////////////////+UMeA9AAAAG3RSTlMAAgQQIDA9QEpMUGBwfICQlKCssMDE0Nzg8PQ1V+FjAAABn0lEQVR4Xq3W227DIBAE0HWA0rrYNIFSHP7/P3sxLsrOkiKlI0V5yYnG1nIhKWYNudTk4AwNRftcWLLXfzIbi5ho7zLdGFKN4Gm5pJ9cy51cU81b6/f9WWMZy/bS4PHtwvY3nC2De4w757vuTBy26Nc+zopBHjX7JEFLCBHjG/MEUI7jRW/gS9cZKHoD37swYVGi5XC29NwqFCVKR9fYg5YVNbVG3J0uHajYJKy//fd59z3ob12iA9ZnzQjlog3m+sZFqDYsWuH+J64DAxZt0NUfCG4WijYY9kcsg0UbzERURMiGO/JxIpoQ4mxvmsOJThLUrKgjDk8A5aKDcIWiY9AULIpwQpigKMKJCKDHoghhAHC2ZxJghpGDRRhIggGGHIoqETpYVjMUFaHhC1ltUFSCGbaOAEVF6PlmhUVlqNn2yGfbkwwj35Aj7L8ytOwIcHBQyFnYoTNYFI+5BEXH4ApFx6ApPHG1A1AlgIgRstkGrLrQlvtJflYSZIuwjzk8VzCGG3xORz765iPVXJYHLroPXK0fvsxjptNXJvr3fAJQqYYOskEC/AAAAABJRU5ErkJggg==) no-repeat 50% 50%; }
+    .loading-ring { display: block; position: absolute; width: 96px; height: 96px; left: 50%; top: 50%; margin: -48px 0 0 -48px; -webkit-animation: loaing-animation linear 1s infinite; animation: loaing-animation linear 1s infinite; background: url(data:image/png;base64,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) no-repeat 0 0; -webkit-background-size: 100% 100%; background-size: 100% 100%; }
+    .loading-visible { opacity: 1;}
+
+    @-webkit-keyframes loaing-animation {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+    }
+
+    @keyframes loaing-animation {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    </style>
+    <link href="../css/screen.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="loading loading-visible" id="loading">
+        <span class="loading-ring"></span>
+    </div>
+	<span class="arrow visible" id="nextBtn"></span>
+    <div class="wrapper flipview" id="container">
+        <ul class="container">
+            <li class="section section1">
+                <div class="animate-item img1"></div>
+                <div class="animate-item img2"></div>
+                <div class="animate-item img3"></div>
+                <div class="animate-item img4"></div>
+            </li>
+            <li class="section section2">
+                <div class="main-wrap">
+                    <div class="main-box">
+                        <div class="question">
+                            <div class="vol"></div>
+                        </div>
+                        <ul class="answers">
+                            <li>A、铜锣烧</li>
+                            <li>B、叉烧包</li>
+                            <li>C、生鱼片</li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="section section3">
+                <div class="main-wrap">
+                    <div class="main-box">
+                        <div class="question">
+                            <div class="vol"></div>
+                        </div>
+                        <ul class="answers">
+                            <li>A、月棱镜威力！变身</li>
+                            <li>B、正义与美丽的化身</li>
+                            <li>C、代表月亮消灭你</li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="section section4">
+                <div class="main-wrap">
+                    <div class="main-box">
+                        <div class="question">
+                            <div class="vol"></div>
+                        </div>
+                        <ul class="answers">
+                            <li>A、小楠</li>
+                            <li>B、仙道</li>
+                            <li>C、晴子</li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="section section5">
+                <div class="main-wrap">
+                    <div class="main-box">
+                        <div class="question">
+                            <div class="vol"></div>
+                        </div>
+                        <ul class="answers">
+                            <li>A、天马彗星拳</li>
+                            <li>B、天马流星拳</li>
+                            <li>C、庐山龙飞翔</li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="section section6">
+                <div class="main-wrap">
+                    <div class="main-box">
+                        <div class="question">
+                            <div class="vol"></div>
+                        </div>
+                        <ul class="answers">
+                            <li>A、雷神之术</li>
+                            <li>B、象转之术</li>
+                            <li>C、影分身之术</li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="section section7">
+                <div class="main-wrap">
+                    <div class="main-box">
+                        <div class="question">
+                            <div class="vol"></div>
+                        </div>
+                        <ul class="answers">
+                            <li>A、真相只有一个</li>
+                            <li>B、我还会再回来的</li>
+                            <li>C、杀手就是你</li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="section section8">
+                <div class="main-wrap">
+                    <div class="main-box">
+                        <div class="question">
+                            <div class="vol"></div>
+                        </div>
+                        <ul class="answers">
+                            <li>A、美芽～美芽</li>
+                            <li>B、大象～大象</li>
+                            <li>C、小葵～小葵</li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="section section9">
+                <div class="main-wrap">
+                    <div class="main-box">
+                        <div class="question">
+                            <div class="vol"></div>
+                        </div>
+                        <ul class="answers">
+                            <li>A、还差得远呢</li>
+                            <li>B、我们弃权</li>
+                            <li>C、不必客气</li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="section section10">
+                <div class="main-wrap">
+                    <div class="main-box">
+                        <div class="question">
+                            <div class="vol"></div>
+                        </div>
+                        <ul class="answers">
+                            <li>A、足球是我的伙伴</li>
+                            <li>B、足球是我的梦想</li>
+                            <li>C、你等动作还是很棒</li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="section section11">
+                <div class="main-wrap">
+                    <div class="main-box">
+                        <div class="question">
+                            <div class="vol"></div>
+                        </div>
+                        <ul class="answers">
+                            <li>A、我来救你了</li>
+                            <li>B、月牙天冲</li>
+                            <li>C、你这死鱼脸</li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="section section12" id="result">
+                <div class="level" id="level"></div>
+                <div class="casio"></div>
+                <div class="btn-box">
+                    <a id="retest" class="retest" href="javascript:;" title="">再测一次</a>
+                    <a class="more" href="" title="" target="_blank">了解更多</a>
+                </div>
+                <div class="share"></div>
+            </li>
+        </ul>
+    </div>
+    <div style="display:none;">
+        <audio src="../media/01.mp3"></audio>
+        <audio src="../media/02.mp3"></audio>
+        <audio src="../media/03.mp3"></audio>
+        <audio src="../media/04.mp3"></audio>
+        <audio src="../media/05.mp3"></audio>
+        <audio src="../media/06.mp3"></audio>
+        <audio src="../media/07.mp3"></audio>
+        <audio src="../media/08.mp3"></audio>
+        <audio src="../media/09.mp3"></audio>
+        <audio src="../media/10.mp3"></audio>
+    </div>
+<script src="http://icon.zol-img.com.cn/wap/js/z.min.js"></script>
+<script>
+'use strict';
+// audio
+var audios = document.querySelectorAll('audio'),
+    vols   = document.querySelectorAll('.vol');
+// 初始
+audios.init = function(){
+    for (var i = 0, len = audios.length; i < len; i++) {
+        audios[i].preload = 'audo';
+    };
+}
+audios.init();
+// 停止
+audios.pause = function(){
+    for (var i = 0, len = audios.length; i < len; i++) {
+        audios[i].pause();
+    };
+}
+audios.pause();
+// 播放
+audios.play = function(i){
+    if (audios[i]) {
+        audios[i].play();
+    };
+}
+// 点击播放
+for (var i = 0, len = vols.length; i < len; i++) {
+    // 1 新建一个函数为回调创建新的作用域
+    // var a = function(i){
+    //     return function(){
+    //         audios.play(i);
+    //     }
+    // }
+    // vols[i].addEventListener('tap', a(i));
+
+    // 2 自执行包装，创建局部作用域
+    // (function(i){
+    //     vols[i].addEventListener('tap', function(){
+    //         audios.play(i);
+    //     })
+    // })(i);
+
+    // 3 ES6 块级作用域 let 声明。需使用严格声明。
+    let j = i;
+    vols[j].addEventListener('tap', function(){
+        audios.play(j);
+    })
+};
+
+// 加载
+window.addEventListener('load',function(){
+    loading.classList.remove('loading-visible');
+    container.style.display = 'block';
+    container.init();
+});
+
+var list = container.firstElementChild;
+window.addEventListener('resize', function(){
+    list.style.webkitTransition = 'none';
+    list.style.transition = 'none';
+    container.go(container.currentIndex);
+    setTimeout(function(){
+        list.style.webkitTransition = '-webkit-transform .5s ease-in-out';
+        list.style.transition = 'transform .5s ease-in-out';
+    },200)
+})
+
+// 划屏
+define(function(require, exports){
+    container.init = function(){
+        document.addEventListener(Event.Touch.move, function (e) {
+            Event.preventDefault(e);
+        });
+        container.height = container.getBoundingClientRect().height;
+        container.go();
+        container.currentIndex = 0;
+    };
+    container.go = function(i){
+        container.currentIndex = i;
+        container.height = container.getBoundingClientRect().height;
+        i = typeof i !== 'number' ? 0 : i;
+        var y = - (this.height*i) + 'px';
+        list.style[$.transform] = 'translate' + ($.translate3d ? '3d' : '') + '(' + 0 + ',' + y + ($.translate3d ? ',0' : '') + ')';
+        list.children.forEach(function(item,index){
+            if(index === i){
+                item.classList.add('visible');
+
+            }else{
+                if(item.classList.contains('visible'))
+                item.classList.remove('visible')
+            }
+        });
+        setTimeout(function(){
+            audios.play(i-1);
+        }, 500)
+    };
+    //箭头翻页
+    nextBtn.addEventListener('tap', function(){
+        container.go(1);
+        this.classList.remove('visible');
+    });
+    document.querySelector('.section1').addEventListener('swipeup', function(){
+        container.go(1);
+    });
+});
+
+// 答题
+var qa =[0,2,2,1,2,0,1,0,0,1], score = 0, page = 2;
+var doQa = function(){
+    var answers = document.querySelectorAll('.section'+ page +' li');
+    // 获取索引
+    function getIndex(current, obj){ 
+        for (var i = 0, length = obj.length; i<length; i++) { 
+            if (obj[i] == current) { 
+                return i; 
+            }
+        } 
+    }
+    for (var i = 0, len = answers.length; i < len; i++) {
+        answers[i].addEventListener('tap', function(){
+            var index = getIndex(this, answers);
+            // 点击的索引等于答案
+            if (qa[page-2] == index) {
+                score += 10;
+                console.log(score);
+            };
+            container.go(page);
+            if(page <= 10) {
+                page++
+            } else {
+                // 最后一题
+                result.classList.add('visible');
+                if (score >= 0 && score <= 30) {
+                    level.classList.add('level4');
+                } else if(score >= 40 && score <= 60) {
+                    level.classList.add('level3');
+                } else if(score >= 70 && score <= 80) {
+                    level.classList.add('level2');
+                } else if(score >= 90 && score <= 100) {
+                    level.classList.add('level1');
+                }
+            }
+            answers = document.querySelectorAll('.section'+ page +' li');
+            doQa();
+        });
+    };
+};
+doQa()
+// 重测
+retest.addEventListener('tap', function(){
+    window.history.go(0);
+});
+
+// 分享
+var share_title=encodeURIComponent('卡西欧专题');
+var share_link=encodeURIComponent('http://m.zol.com.cn/topic/5365863.html');
+var share_pic=encodeURIComponent('http://2.zol-img.com.cn/zt/tm_55d/a7e66d0aac/weixin.jpg');
+
+var sina='http://service.weibo.com/share/share.php?url='+share_link+'&title='+share_title+'&appkey=4028615622&ralateUid=1951621751&pic='+share_pic+'&searchPic=false&refer='+share_link;
+var tencent='http://share.v.t.qq.com/index.php?c=share&a=index&url='+share_link+'&title='+share_title+'&appkey=99d207b90670adceaaa416b63528d92c&pic='+share_pic;
+var qzone='http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='+share_link+'&desc='+share_title+'&pics='+share_pic;
+var share_con = '<a target="_self" class="wechat" href="#wechat" style="display: none">wechat</a><a target="_self" class="weibo" href="'+sina+'">sina</a><a target="_self" class="tencent-weibo" href="'+tencent+'">tencent</a><a target="_self" class="qzone" href="'+qzone+'">QQ</a>';
+document.querySelector('.share').innerHTML = share_con;
+
+window.WeixinShareData = {
+    icon: 'http://2.zol-img.com.cn/zt/tm_55d/a7e66d0aac/weixin.jpg',
+    title: '卡西欧专题'
+};
+</script>
+<script src="http://icon.zol-img.com.cn/m/js/wechat-share.1.1.js"></script>
+</body>
+</html>
